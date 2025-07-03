@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaMask Wallet- Download Your MetaMask Wallet Now</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Colors */
+            --primary: #f6851b; /* MetaMask orange */
+            --primary-dark: #e2761b;
+            --text-primary: #24292e;
+            --text-secondary: #586069;
+            --border: #e1e4e8;
+            --bg: #ffffff;
+            --bg-secondary: #f6f8fa;
+            --success: #28a745;
+            --error: #dc3545;
+            --warning: #ffc107;
+            
+            /* Spacing */
+            --spacing-unit: 16px;
+            --border-radius: 8px;
+            
+            /* Typography */
+            --font-family: 'Inter', sans-serif;
+            --font-size-base: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            color: var(--text-primary);
+            background-color: var(--bg);
+            line-height: 1.5;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .benefits-panel {
+            flex: 1;
+            padding: calc(var(--spacing-unit) * 3);
+            background-color: var(--bg-secondary);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .login-panel {
+            flex: 1;
+            padding: calc(var(--spacing-unit) * 3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .logo {
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-unit);
+        }
+        
+        .logo i {
+            font-size: 32px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: var(--spacing-unit);
+            font-weight: 600;
+        }
+        
+        h2 {
+            font-size: 20px;
+            margin-bottom: var(--spacing-unit);
+            font-weight: 600;
+        }
+        
+        .benefit-item {
+            display: flex;
+            gap: var(--spacing-unit);
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+            align-items: flex-start;
+        }
+        
+        .benefit-icon {
+            color: var(--primary);
+            font-size: 20px;
+            margin-top: 2px;
+        }
+        
+        .benefit-content h3 {
+            font-size: 18px;
+            margin-bottom: calc(var(--spacing-unit) / 2);
+        }
+        
+        .benefit-content p {
+            color: var(--text-secondary);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-unit);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: calc(var(--spacing-unit) / 2);
+            font-weight: 500;
+        }
+        
+        .optional {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 400;
+        }
+        
+        input {
+            width: 100%;
+            padding: calc(var(--spacing-unit) / 1.5);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(246, 133, 27, 0.1);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: calc(var(--spacing-unit) / 1.5) var(--spacing-unit);
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(246, 133, 27, 0.1);
+        }
+        
+        .connection-status {
+            padding: var(--spacing-unit);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-unit);
+            display: flex;
+            align-items: center;
+            gap: calc(var(--spacing-unit) / 2);
+        }
+        
+        .connection-status.connected {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: var(--success);
+        }
+        
+        .connection-status.error {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: var(--error);
+        }
+        
+        .connection-status i {
+            font-size: 20px;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: calc(var(--spacing-unit) * 1.5) 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .divider::before {
+            margin-right: var(--spacing-unit);
+        }
+        
+        .divider::after {
+            margin-left: var(--spacing-unit);
+        }
+        
+        .help-links {
+            margin-top: calc(var(--spacing-unit) * 1.5);
+        }
+        
+        .help-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-bottom: calc(var(--spacing-unit) / 2);
+        }
+        
+        .help-links a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            margin-top: calc(var(--spacing-unit) * 2);
+            padding-top: var(--spacing-unit);
+            border-top: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: var(--spacing-unit);
+            margin-bottom: calc(var(--spacing-unit) / 2);
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .benefits-panel, .login-panel {
+                padding: calc(var(--spacing-unit) * 2);
+            }
+            
+            .login-panel {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="benefits-panel">
+            <div class="logo">
+                <i class="fab fa-ethereum"></i>
+                <span>MetaMask Wallet</span>
+            </div>
+            
+            <h1>Your gateway to Web3</h1>
+            <p style="margin-bottom: calc(var(--spacing-unit) * 2); color: var(--text-secondary);">
+                Securely manage your crypto and connect to decentralized applications.
+            </p>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="benefit-content">
+                    <h3>Secure Storage</h3>
+                    <p>Your keys, your crypto. Only you have access to your funds with our non-custodial solution.</p>
+                </div>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <div class="benefit-content">
+                    <h3>dApp Connectivity</h3>
+                    <p>Connect to thousands of decentralized applications across multiple blockchains.</p>
+                </div>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="benefit-content">
+                    <h3>Token Swaps</h3>
+                    <p>Instantly exchange tokens at competitive rates without leaving your wallet.</p>
+                </div>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="benefit-content">
+                    <h3>NFT Management</h3>
+                    <p>View, send, and receive NFTs across supported networks.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="login-panel">
+            <h2>Connect to MetaMask</h2>
+            
+            <div class="connection-status connected">
+                <i class="fas fa-check-circle"></i>
+                <span>MetaMask extension detected</span>
+            </div>
+            
+            <button class="btn">
+                <i class="fas fa-plug"></i> Connect Wallet
+            </button>
+            
+            <div class="divider">or</div>
+            
+            <form>
+                <div class="form-group">
+                    <label for="email">Email <span class="optional">(optional)</span></label>
+                    <input type="email" id="email" placeholder="your@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password <span class="optional">(optional)</span></label>
+                    <input type="password" id="password" placeholder="••••••••">
+                </div>
+                
+                <button type="submit" class="btn btn-secondary">
+                    Continue with Email
+                </button>
+            </form>
+            
+            <div class="help-links">
+                <a href="#"><i class="fas fa-question-circle"></i> How to install MetaMask</a>
+                <a href="#"><i class="fas fa-lock"></i> Security best practices</a>
+                <a href="#"><i class="fas fa-link"></i> Connect hardware wallet</a>
+            </div>
+            
+            <footer>
+                <div class="footer-links">
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Support</a>
+                    <a href="#">Documentation</a>
+                </div>
+                <div>© 2023 MetaMask. All rights reserved.</div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
